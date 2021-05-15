@@ -18,7 +18,7 @@ class DetailActivity: AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "BookSearchDB").build()
+        db = getAppDatabase(this)
 
         val model = intent.getParcelableExtra<Book>("bookModel")
 

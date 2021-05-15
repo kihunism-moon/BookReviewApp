@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         initBookRecyclerView()
         initHistoryRecyclerView()
 
-        db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "BookSearchDB").build()
+        db = getAppDatabase(this)
 
         val retrofit = Retrofit.Builder()
             .baseUrl("https://book.interpark.com")
@@ -100,9 +100,7 @@ class MainActivity : AppCompatActivity() {
                     hideHistoryView()
                     Log.e(TAG, t.toString())
                 }
-
             })
-
     }
 
     private fun initBookRecyclerView() {
